@@ -1,0 +1,47 @@
+{
+  "name": "cue-ntp",
+  "version": "0.1.0",
+  "description": "A TypeScript NTP client for reading server time and formatting UTC AM/PM output.",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "validate": "npm run typecheck && npm test",
+    "prepack": "npm run validate && npm run build",
+    "pack:dry": "npm pack --dry-run",
+    "pack:local": "npm pack"
+  },
+  "keywords": [
+    "ntp",
+    "time",
+    "udp",
+    "date",
+    "clock",
+    "typescript"
+  ],
+  "author": "Cue Script",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.7"
+  }
+}
